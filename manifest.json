@@ -1,0 +1,49 @@
+{
+	// Required
+  "manifest_version": 2,
+  "name": "Truthmeter",
+  "version": "1.0.0",
+
+  // Recommended
+  
+  "description": "This extension tracks fake news article on the web and warns readers",
+	"icons": { 
+		   "16": "assets/images/icon16.png",
+           "48": "assets/images/icon48.png",
+           "128": "assets/images/icon128.png"
+           },
+
+    "browser_action": {
+          "default_icon": {                    // optional
+            "16": "assets/images/icon16.png",           // optional
+            "24": "assets/images/icon24.png",           // optional
+            "32": "assets/images/icon32.png"            // optional
+          },
+
+     	"default_title": "Report fake news",      // optional; shown in tooltip
+          "default_popup": "index.html"        // optional
+        },  
+
+		//Persmissions
+		"permissions":[		
+		"tabs",
+		"activeTab",
+		"http://*/*", "https://*/*",
+		"notifications"
+		],
+
+       "content_scripts": [
+   {
+     "matches": ["<all_urls>"],
+     "css": ["myStyles.css"],
+     "js": ["jquery.js","contentScript.js"]
+   }
+ ],
+    // Recommended
+    "background":{
+    	"scripts":["background.js"],
+    	"persistent": false
+    }    
+
+ 
+}
